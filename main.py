@@ -1,3 +1,4 @@
+import os
 import discord as d
 import random
 from datetime import date
