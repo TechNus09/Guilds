@@ -149,7 +149,7 @@ def search(skill_name):
             tag = player_name.split()[0]
             tag = tag.upper()
 
-            if tag in d_test
+            if tag in d_test :
                 d_test[tag] += xp
             elif "Immortal" in player_name :
                 d_test["IMMORTAL"] += xp
@@ -173,8 +173,6 @@ def searchTotal():
     list_guilds_total_stred = []
     dd_test = ResetDict(guilds_counter_int)
     for m in range(0,7):
-
-        #ResetDict(guilds_counter_total)
         for k in range(0,49):  
             url='https://www.curseofaros.com/highscores'
             headers = {'User-Agent': 'Mozilla/5.0'}        
@@ -190,10 +188,8 @@ def searchTotal():
                 tag = tag.upper()
 
                 if tag in dd_test :
-                    #guilds_counter_total[tag] += xp
                     dd_test[tag] += xp
                 elif "Immortal" in player_name :
-                    #guilds_counter_total["IMMORTAL"] += xp
                     dd_test["IMMORTAL"] += xp
                 else :                
                     continue
