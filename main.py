@@ -347,6 +347,22 @@ async def on_message(message):
             d1 = today.strftime("%d/%m/%Y")
             response = f'Today is : {d1}'
             await message.channel.send(response)
+        
+        elif user_message.lower() == ('!ghelp') :
+            embedVar8 = d.Embed(title="Guilds Commands", color=0x669999)
+            embedVar8.add_field(name="!gcombat", value= "Show Top 5 Guilds in Combat" , inline=False)
+            embedVar8.add_field(name="!gmining", value= "Show Top 5 Guilds in Mining" , inline=False)
+            embedVar8.add_field(name="!gsmithing", value= "Show Top 5 Guilds in Smithing" , inline=False)
+            embedVar8.add_field(name="!gwc", value= "Show Top 5 Guilds in Woodcutting" , inline=False)
+            embedVar8.add_field(name="!gcrafting", value= "Show Top 5 Guilds in Crafting" , inline=False)
+            embedVar8.add_field(name="!gfishing", value= "Show Top 5 Guilds in Fishing" , inline=False)
+            embedVar8.add_field(name="!gcooking", value= "Show Top 5 Guilds in Cooking" , inline=False)
+            embedVar8.add_field(name="!gtotal", value= "Show Top 5 Guilds in Total XP" , inline=False)
+            embedVar8.add_field(name="!random", value= "Random Number (0;1,000,000)" , inline=False)
+            embedVar8.add_field(name="!date", value= "Show Today Date" , inline=False)
+            embedVar8.add_field(name="!dc or !disconnect", value= "Disconnect The Bot For a While To Reset Himself" , inline=False)
+            embedVar8.add_field(name="!hello , !wussup , !bye", value= "Interract With The Bot" , inline=False)
+            await message.channel.send(embed=embedVar8)
 
             return
 
