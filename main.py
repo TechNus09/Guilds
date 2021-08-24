@@ -105,7 +105,7 @@ guilds_counter_int  = {'IMMORTAL': 0, 'OWO': 0, 'EXP': 0, 'BRX': 0, 'RNG': 0, 'L
 
 def DictToList (dictio,listo):
     for key, value in dictio.items():
-        test = key + " -- " + str(value)
+        test = key + " -- " + "{:,}".format(value)
         listo.append(test)
 
 def ResetDict(diction):
