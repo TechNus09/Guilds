@@ -240,7 +240,7 @@ def searchTotal():
 
 
 
-TOKEN = 'ODc5Mzc1NjE0ODQ5NzI4NTIz.YSO0XA.-QCeZd7hCTteXo6MUZaLiCdSgUI'
+
 client = d.Client()
 
 @client.event
