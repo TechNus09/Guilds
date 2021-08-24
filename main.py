@@ -5,13 +5,8 @@ from datetime import date
 from urllib.request import Request, urlopen
 import json
 
-
-
-
-
 skill = ['','-mining', '-smithing', '-woodcutting', '-crafting', '-fishing', '-cooking']
 skills = ['combat','mining', 'smithing', 'woodcutting', 'crafting', 'fishing', 'cooking']
-
 
 guilds_combat = {}
 guilds_mining = {}
@@ -20,11 +15,6 @@ guilds_woodcutting = {}
 guilds_crafting = {}
 guilds_fishing = {}
 guilds_cooking = {}
-
-
-
-
-
 
 guilds_counter  = {'IMMORTAL': 0, 'OWO': 0, 'EXP': 0, 'BRX': 0, 'RNG': 0, 'LAT': 0, 'KRG': 0, 'GGWP': 0, 'PVM': 0, 'DTF': 0, 'HSR': 0, 'FG': 0, 
                     'NS': 0, 'AOE': 0, 'NSFW': 0, 'DMG': 0, 'AXIAL': 0, 'PAK': 0, 'T62': 0, 'VLR': 0, 'RYU': 0, 'TI': 0, 'NSL': 0, '1HB': 0, 'FFA': 0,
@@ -113,23 +103,14 @@ guilds_counter_int  = {'IMMORTAL': 0, 'OWO': 0, 'EXP': 0, 'BRX': 0, 'RNG': 0, 'L
                         'RICK': 0, 'ULTR': 0, 'KAMI': 0, 'QUAN': 0, 'FORST': 0, 'DWIKI': 0, 'LBCL': 0, 'EML': 0, 'HUONG': 0, 'AFK': 0, 'NO': 0,
                         'DUCKS': 0, 'XERRA': 0, 'THAT': 0, 'DJ': 0, 'TWO': 0}
 
-
-
 def DictToList (dictio,listo):
     for key, value in dictio.items():
         test = key + " -- " + str(value)
         listo.append(test)
 
-
-
 def ResetDict(diction):
     diction = diction.fromkeys(diction, 0)
     return diction
-
-
-
-
-
 
 def search(skill_name):
     list_guilds_stred = []
@@ -167,8 +148,6 @@ def search(skill_name):
     temp_guilds = ResetDict(guilds_counter_int)
     return mini_list
 
-    #############
-
 def searchTotal():
     list_guilds_total_stred = []
     dd_test = ResetDict(guilds_counter_int)
@@ -205,17 +184,14 @@ def searchTotal():
     temp_guilds = ResetDict(guilds_counter_int)
     return mini_list
 
-
-
-
-
+############################################################################################################
+  
 client = d.Client()
 
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=d.Activity(type=d.ActivityType.watching, name="LeaderBoard"))
-
 
 @client.event
 async def on_message(message):
@@ -370,7 +346,5 @@ async def on_message(message):
         if user_message.lower() == '!anywhere':
             await message.channel.send('please head to #testing to use me')
             return
-
-
-
+          
 client.run(os.getenv('TOKEN'))
