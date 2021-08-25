@@ -237,10 +237,7 @@ async def on_message(message):
             test_list_1.clear()
         
         elif user_message.lower() == ('!gtest') :
-            await message.channel.send("Fetching Combat Data")
-            test_list_1 = search("")
-            embedVar1 = d.Embed(title="Top Guilds: Combat", color=0x669999)
-            
+            embedVar1 = d.Embed(title="Top Guilds", color=0x669999)
             #######################################
             embedVar1.add_field(name="Mining", value="Test Test" , inline=True)
             embedVar1.add_field(name="Woodcutting", value="Test Test" , inline=True)
