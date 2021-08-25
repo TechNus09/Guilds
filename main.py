@@ -254,7 +254,7 @@ async def on_message(message):
             #######################################
             embedVar1.add_field(name= f' {smithing} " Smithing", value=" :first_place: Test \n :second_place: Test" , inline=True)
             embedVar1.add_field(name= f' {crafting} " Crafting", value=" :first_place: Test \n :second_place: Test" , inline=True)
-            embedVar1.add_field(name= f' {cooking} " Cooking", value=" :first_place: Test \ :second_place: Test" , inline=True)
+            embedVar1.add_field(name= f' {cooking} " Cooking", value=" :first_place: Test \n :second_place: Test" , inline=True)
             #######################################
             embedVar1.add_field(name= f' {combat} " Combat", value=" :first_place: Test \n :second_place: Test" , inline=True)
             embedVar1.add_field(name="Total XP", value=" :first_place: Test \n :second_place: Test" , inline=True)
