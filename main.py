@@ -208,10 +208,13 @@ async def on_message(message):
             await message.channel.send(f'Hello {username}!')
 
         elif user_message.lower() == '!bye':
-            await message.channel.send(f'See you later {username}!') 
-
+            await message.channel.send(f'See you later {username}!')
+      
         elif user_message.lower() == '!wussup':
             await message.channel.send(f'Nothing much, hbu {username} ?') 
+
+        elif user_message.lower() == '!bestguild':
+            await message.channel.send(f'OwO Numba Wan !') 
 
         elif user_message.lower() == '!random':
             response = f'random number between (0 ; 1,000,000): {random.randrange(1000000)}'
@@ -222,7 +225,7 @@ async def on_message(message):
 
     
         elif user_message.lower() == ('!gcombat') :
-            await message.channel.send("Fetching Data")
+            await message.channel.send("Fetching Combat Data")
             test_list_1 = search("")
             embedVar1 = d.Embed(title="Top Guilds: Combat", color=0x669999)
             embedVar1.add_field(name="rank#1", value= test_list_1[0] , inline=False)
@@ -234,7 +237,7 @@ async def on_message(message):
             test_list_1.clear()
 
         elif user_message.lower() == ('!gmining') :
-            await message.channel.send("Fetching Data")
+            await message.channel.send("Fetching Mining Data ... ")
             test_list_2 = search("-mining")
             embedVar2 = d.Embed(title="Top Guilds: Mining", color=0x333300)
             embedVar2.add_field(name="rank#1", value= test_list_2[0] , inline=False)
@@ -246,7 +249,7 @@ async def on_message(message):
             test_list_2.clear()
 
         elif user_message.lower() == ('!gsmithing') :
-            await message.channel.send("Fetching Data")
+            await message.channel.send("Fetching Smithing Data ... ")
             test_list_3 = search("-smithing")
             embedVar3 = d.Embed(title="Top Guilds: Smithing", color=0xff0000)
             embedVar3.add_field(name="rank#1", value= test_list_3[0] , inline=False)
@@ -258,7 +261,7 @@ async def on_message(message):
             test_list_3.clear()
 
         elif user_message.lower() == ('!gwc') :
-            await message.channel.send("Fetching Data")
+            await message.channel.send("Fetching Woodcutting Data ... ")
             test_list_4 = search("-woodcutting")
             embedVar4 = d.Embed(title="Top Guilds: Woodcutting", color=0x00cc00)
             embedVar4.add_field(name="rank#1", value= test_list_4[0] , inline=False)
@@ -270,7 +273,7 @@ async def on_message(message):
             test_list_4.clear()
 
         elif user_message.lower() == ('!gcrafting') :
-            await message.channel.send("Fetching Data")
+            await message.channel.send("Fetching Crafting Data ... ")
             test_list_5 = search("-crafting")
             embedVar5 = d.Embed(title="Top Guilds: Crafting", color=0x996633)
             embedVar5.add_field(name="rank#1", value= test_list_5[0] , inline=False)
@@ -282,7 +285,7 @@ async def on_message(message):
             test_list_5.clear()
 
         elif user_message.lower() == ('!gfishing') :
-            await message.channel.send("Fetching Data")
+            await message.channel.send("Fetching Fishimg Data ... ")
             test_list_6 = search("-fishing")
             embedVar6 = d.Embed(title="Top Guilds: Fishing", color=0x0066ff)
             embedVar6.add_field(name="rank#1", value= test_list_6[0] , inline=False)
@@ -294,7 +297,7 @@ async def on_message(message):
             test_list_6.clear()
 
         elif user_message.lower() == ('!gcooking') :
-            await message.channel.send("Fetching Data")
+            await message.channel.send("Fetching Cooking Data ... ")
             test_list_7 = search("-cooking")
             embedVar7 = d.Embed(title="Top Guilds: Cooking", color=0x800000)
             embedVar7.add_field(name="rank#1", value= test_list_7[0] , inline=False)
@@ -306,7 +309,7 @@ async def on_message(message):
             test_list_7.clear()
 
         elif user_message.lower() == ('!gtotal') :
-            await message.channel.send("Fetching Data")
+            await message.channel.send("Fetching Data ... ")
             test_list_0 = searchTotal()
         
             embedVar0 = d.Embed(title="Top Guilds: Total XP", color=0x6600ff)
@@ -334,6 +337,7 @@ async def on_message(message):
             embedVar8.add_field(name="!gfishing", value= "Show Top 5 Guilds in Fishing" , inline=False)
             embedVar8.add_field(name="!gcooking", value= "Show Top 5 Guilds in Cooking" , inline=False)
             embedVar8.add_field(name="!gtotal", value= "Show Top 5 Guilds in Total XP" , inline=False)
+            embedVar8.add_field(name="!bestguild", value= "Show The Current Best Guild" , inline=False)
             embedVar8.add_field(name="!random", value= "Random Number (0;1,000,000)" , inline=False)
             embedVar8.add_field(name="!date", value= "Show Today Date" , inline=False)
             embedVar8.add_field(name="!dc or !disconnect", value= "Disconnect The Bot For a While To Reset Himself" , inline=False)
