@@ -1,5 +1,6 @@
 import os
 import discord as d
+from discord.utils import get
 import random
 from datetime import date
 from urllib.request import Request, urlopen
@@ -195,6 +196,14 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    mining = get(ctx.message.server.emojis, name="mining")
+    wc = get(ctx.message.server.emojis, name="woodcutting")
+    fishing = get(ctx.message.server.emojis, name="fishing")
+    smithing = get(ctx.message.server.emojis, name="smithing")
+    crafting = get(ctx.message.server.emojis, name="crafting")
+    cooking = get(ctx.message.server.emojis, name="cooking")
+    combat = get(ctx.message.server.emojis, name="combat")
+      
     username = str(message.author).split('#')[0]
     user_message = str(message.content)
     channel = str(message.channel.name)
@@ -239,15 +248,15 @@ async def on_message(message):
         elif user_message.lower() == ('!gtest') :
             embedVar1 = d.Embed(title="Top Guilds", color=0x669999)
             #######################################
-            embedVar1.add_field(name=" :mining: Mining", value=" :first_place: Test \n :second_place: Test" , inline=True)
-            embedVar1.add_field(name=" :woodcutting: Woodcutting", value=" :first_place: Test \n :second_place: Test" , inline=True)
-            embedVar1.add_field(name=" :fishing: Fishing", value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name= f' {mining} " Mining", value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name= f' {woodcutting} " Woodcutting", value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name= f' {fishing} " Fishing", value=" :first_place: Test \n :second_place: Test" , inline=True)
             #######################################
-            embedVar1.add_field(name=" :smithing: Smithing", value=" :first_place: Test \n :second_place: Test" , inline=True)
-            embedVar1.add_field(name=" :crafting: Crafting", value=" :first_place: Test \n :second_place: Test" , inline=True)
-            embedVar1.add_field(name=" :cooking: Cooking", value=" :first_place: Test \ :second_place: Test" , inline=True)
+            embedVar1.add_field(name= f' {smithing} " Smithing", value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name= f' {crafting} " Crafting", value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name= f' {cooking} " Cooking", value=" :first_place: Test \ :second_place: Test" , inline=True)
             #######################################
-            embedVar1.add_field(name=" :combat: Combat", value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name= f' {combat} " Combat", value=" :first_place: Test \n :second_place: Test" , inline=True)
             embedVar1.add_field(name="Total XP", value=" :first_place: Test \n :second_place: Test" , inline=True)
             await message.channel.send(embed=embedVar1)
                                
