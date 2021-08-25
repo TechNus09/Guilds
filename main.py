@@ -244,7 +244,7 @@ async def on_message(message):
             embedVar1.add_field(name="Mining", value=      "Test Test" , inline=True)
             embedVar1.add_field(name="Smithing", value=    "Test Test" , inline=True)
             embedVar1.add_field(name="Woodcutting", value= "Test Test" , inline=False)
-            embedVar1.add_field(name="Crafting", value=    "Test Test" , inline=True)
+            embedVar1.add_field(name="Crafting", value=    "Test Test" , inline=False)
             embedVar1.add_field(name="Fishing", value=     "Test Test" , inline=True)
             embedVar1.add_field(name="Cooking", value=     "Test Test" , inline=False)
             embedVar1.add_field(name="Total XP", value=    "Test Test" , inline=False)
