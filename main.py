@@ -229,10 +229,10 @@ async def on_message(message):
             test_list_1 = search("")
             embedVar1 = d.Embed(title="Top Guilds: Combat", color=0x669999)
             embedVar1.add_field(name="rank#1", value= test_list_1[0] , inline=True)
-            embedVar1.add_field(name="rank#2", value= test_list_1[1] , inline=False)
+            embedVar1.add_field(name="rank#2", value= test_list_1[1] , inline=True)
             embedVar1.add_field(name="rank#3", value= test_list_1[2] , inline=False)
             embedVar1.add_field(name="rank#4", value= test_list_1[3] , inline=True)
-            embedVar1.add_field(name="rank#5", value= test_list_1[4] , inline=False)
+            embedVar1.add_field(name="rank#5", value= test_list_1[4] , inline=True)
             await message.channel.send(embed=embedVar1)
             test_list_1.clear()
 
