@@ -239,16 +239,16 @@ async def on_message(message):
         elif user_message.lower() == ('!gtest') :
             embedVar1 = d.Embed(title="Top Guilds", color=0x669999)
             #######################################
-            embedVar1.add_field(name=":pick: Mining", value="Test Test" , inline=True)
-            embedVar1.add_field(name=" :axe: Woodcutting", value="Test Test" , inline=True)
-            embedVar1.add_field(name=" :fishing_pole_and_fish: Fishing", value="Test Test" , inline=True)
+            embedVar1.add_field(name=" :mining: Mining", value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name=" :woodcutting: Woodcutting", value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name=" :fishing: Fishing", value=" :first_place: Test \n :second_place: Test" , inline=True)
             #######################################
-            embedVar1.add_field(name="Smithing", value="Test Test" , inline=True)
-            embedVar1.add_field(name="Crafting", value="Test Test" , inline=True)
-            embedVar1.add_field(name="Cooking", value="Test Test" , inline=True)
+            embedVar1.add_field(name=" :smithing: Smithing", value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name=" :crafting: Crafting", value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name=" :cooking: Cooking", value=" :first_place: Test \ :second_place: Test" , inline=True)
             #######################################
-            embedVar1.add_field(name="Combat", value="Test Test" , inline=True)
-            embedVar1.add_field(name="Total XP", value="Test Test" , inline=True)
+            embedVar1.add_field(name=" :combat: Combat", value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name="Total XP", value=" :first_place: Test \n :second_place: Test" , inline=True)
             await message.channel.send(embed=embedVar1)
                                
         elif user_message.lower() == ('!gmining') :
