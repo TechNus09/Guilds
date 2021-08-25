@@ -240,9 +240,7 @@ async def on_message(message):
             await message.channel.send("Fetching Combat Data")
             test_list_1 = search("")
             embedVar1 = d.Embed(title="Top Guilds: Combat", color=0x669999)
-            embedVar1.add_field(name="Total XP", value="Test Test" , inline=True)
-            #######################################
-            embedVar1.add_field(name="Combat", value="Test Test" , inline=True)
+            embedVar1.add_field(name="Combat", value="Test Test" , inline=False)
             #######################################
             embedVar1.add_field(name="Mining", value="Test Test" , inline=False)
             embedVar1.add_field(name="Woodcutting", value="Test Test" , inline=True)
@@ -251,6 +249,8 @@ async def on_message(message):
             embedVar1.add_field(name="Smithing", value="Test Test" , inline=True)
             embedVar1.add_field(name="Crafting", value="Test Test" , inline=True)
             embedVar1.add_field(name="Cooking", value="Test Test" , inline=True)
+            #######################################
+            embedVar1.add_field(name="Total XP", value="Test Test" , inline=False)
             await message.channel.send(embed=embedVar1)
                                
         elif user_message.lower() == ('!gmining') :
