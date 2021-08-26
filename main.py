@@ -248,15 +248,15 @@ async def on_message(message):
         elif user_message.lower() == ('!gtest') :
             embedVar1 = d.Embed(title="Top Guilds", color=0x669999)
             #######################################
-            embedVar1.add_field(name= f' {mining}  Mining", value=" :first_place: Test \n :second_place: Test" , inline=True)
-            embedVar1.add_field(name= f' {woodcutting}  Woodcutting", value=" :first_place: Test \n :second_place: Test" , inline=True)
-            embedVar1.add_field(name= f' {fishing}  Fishing", value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name= f' {mining}  Mining', value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name= f' {woodcutting}  Woodcutting', value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name= f' {fishing}  Fishing', value=" :first_place: Test \n :second_place: Test" , inline=True)
             #######################################
-            embedVar1.add_field(name= f' {smithing}  Smithing", value=" :first_place: Test \n :second_place: Test" , inline=True)
-            embedVar1.add_field(name= f' {crafting}  Crafting", value=" :first_place: Test \n :second_place: Test" , inline=True)
-            embedVar1.add_field(name= f' {cooking}  Cooking", value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name= f' {smithing}  Smithing', value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name= f' {crafting}  Crafting', value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name= f' {cooking}  Cooking', value=" :first_place: Test \n :second_place: Test" , inline=True)
             #######################################
-            embedVar1.add_field(name= f' {combat}  Combat", value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name= f' {combat}  Combat', value=" :first_place: Test \n :second_place: Test" , inline=True)
             embedVar1.add_field(name="Total XP", value=" :first_place: Test \n :second_place: Test" , inline=True)
             await message.channel.send(embed=embedVar1)
                                
