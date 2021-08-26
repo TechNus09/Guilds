@@ -196,13 +196,13 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    mining = get(ctx.message.server.emojis, name="mining")
-    wc = get(ctx.message.server.emojis, name="woodcutting")
-    fishing = get(ctx.message.server.emojis, name="fishing")
-    smithing = get(ctx.message.server.emojis, name="smithing")
-    crafting = get(ctx.message.server.emojis, name="crafting")
-    cooking = get(ctx.message.server.emojis, name="cooking")
-    combat = get(ctx.message.server.emojis, name="combat")
+    mining = get(message.guild.emojis, name="mining")
+    wc = get(message.guild.emojis, name="woodcutting")
+    fishing = get(message.guild.emojis, name="fishing")
+    smithing = get(message.guild.emojis, name="smithing")
+    crafting = get(message.guild.emojis, name="crafting")
+    cooking = get(message.guild.emojis, name="cooking")
+    combat = get(message.guild.emojis, name="combat")
       
     username = str(message.author).split('#')[0]
     user_message = str(message.content)
