@@ -249,7 +249,7 @@ async def on_message(message):
             embedVar1 = d.Embed(title="Top Guilds", color=0x669999)
             #######################################
             embedVar1.add_field(name= f' {mining}  Mining', value=" :first_place: Test \n :second_place: Test" , inline=True)
-            embedVar1.add_field(name= f' {woodcutting}  Woodcutting', value=" :first_place: Test \n :second_place: Test" , inline=True)
+            embedVar1.add_field(name= f' {wc}  Woodcutting', value=" :first_place: Test \n :second_place: Test" , inline=True)
             embedVar1.add_field(name= f' {fishing}  Fishing', value=" :first_place: Test \n :second_place: Test" , inline=True)
             #######################################
             embedVar1.add_field(name= f' {smithing}  Smithing', value=" :first_place: Test \n :second_place: Test" , inline=True)
