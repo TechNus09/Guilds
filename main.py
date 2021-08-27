@@ -290,11 +290,16 @@ async def on_message(message):
         return
 
     if message.channel.name == 'testing' :
+        cmd_int = int(user_message.split(" ")[2])
         if user_message.lower() == '!hello':
             await message.channel.send(f'Hello {username}!')
 
         elif user_message.lower() == '!bye':
             await message.channel.send(f'See you later {username}!')
+            
+        
+        elif ((user_message.lower() == "!gtest") and (comd_int>=2) and (comd_int<=5)):
+            await message.channel.send(f'Wanna Search For {cmd_int} Rank ?!')
       
         elif user_message.lower() == '!wussup':
             await message.channel.send(f'Nothing much, hbu {username} ?') 
@@ -412,6 +417,7 @@ async def on_message(message):
             embedVar8.add_field(name="!gtotal", value= "Show Top 5 Guilds in Total XP" , inline=False)
             embedVar8.add_field(name="!gall", value= "Show Top 5 Guilds in Every Category" , inline=False)
             embedVar8.add_field(name="!bestguild", value= "Show The Current Best Guild" , inline=False)
+            embedVar8.add_field(name="!gtest", value= "Test The Current Command In Developement" , inline=False)
             embedVar8.add_field(name="!random", value= "Random Number (0;1,000,000)" , inline=False)
             embedVar8.add_field(name="!date", value= "Show Today Date" , inline=False)
             embedVar8.add_field(name="!dc or !disconnect", value= "Disconnect The Bot For a While To Reset Himself" , inline=False)
