@@ -112,7 +112,7 @@ def DictToList (dictio,listo):
 def DictToList_alt (dictio):
     temporal = []
     for key, value in dictio.items():
-        test = key + "--" + "{:,}".format(value)
+        test = key + " -- " + "{:,}".format(value)
         temporal.append(test)
     return temporal 
 
