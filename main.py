@@ -388,8 +388,9 @@ async def on_message(message):
             embedVar1 = d.Embed(title="Top Guilds", color=0x669999)
             listed = LeaderBoard()
             
-            for i in [1,3,5,2,4,6,0,7]:
-                msg = " :first_place: "+listed[i][0]+" \n :second_place: "+listed[i][1]+" \n :third_place: "+listed[i][2]+f" \n {fourth} "+listed[i][3]+f" \n {fifth} "+listed[i][4]+' \n' #mining
+            wierd_order = [1,3,5,2,4,6,0,7]
+            for i in range(8) :
+                msg = " :first_place: "+listed[wierd_order[i]][0]+" \n :second_place: "+listed[wierd_order[i]][1]+" \n :third_place: "+listed[wierd_order[i]][2]+f" \n {fourth} "+listed[wierd_order[i]][3]+f" \n {fifth} "+listed[wierd_order[i]][4]+' \n' #mining
                 embedVar1.add_field(name= field_header[i], value= msg , inline=True)
             await message.channel.send(embed=embedVar1)
         
