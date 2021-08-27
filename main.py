@@ -356,7 +356,7 @@ async def on_message(message):
             test_list_5.clear()
 
         elif user_message.lower() == ('!gfishing') :
-            await message.channel.send("Fetching Fishimg Data ... ")
+            await message.channel.send("Fetching Fishing Data ... ")
             test_list_6 = search("-fishing")
             embedVar6 = d.Embed(title="Top Guilds: Fishing", color=0x0066ff)
             for i in range(5):
