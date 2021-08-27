@@ -276,6 +276,10 @@ async def on_message(message):
     combat = get(message.guild.emojis, name="combat")
     fourth = get(message.guild.emojis, name="fourth_place")
     fifth = get(message.guild.emojis, name="fifth_place") 
+    
+    field_header = [f' {mining} Top Guilds Mining \n',f' {wc} Top Guilds Woodcutting\n',f' {fishing} Top Guilds Fishing\n',f' {smithing} Top Guilds Smithing\n',
+                        f' {crafting} Top Guilds Crafting\n',f' {cooking} Top Guilds Cooking\n',f' {combat} Top Guilds Combat\n',"Top Guilds Total XP\n"]
+    
       
     username = str(message.author).split('#')[0]
     user_message = str(message.content)
