@@ -108,10 +108,27 @@ def DictToList (dictio,listo):
     for key, value in dictio.items():
         test = key + " -- " + "{:,}".format(value)
         listo.append(test)
+        
+def DictToList_alt (dictio):
+    temporal = []
+    for key, value in dictio.items():
+        test = key + "--" + "{:,}".format(value)
+        temporal.append(test)
+    return temporal 
 
 def ResetDict(diction):
     diction = diction.fromkeys(diction, 0)
     return diction
+  
+def SortDict (di):
+    temp = {}
+    temp.clear()
+    temp = {k: v for k, v in sorted(di.items(), key=lambda item: item[1],reverse=True)}
+    return temp
+  
+def rankk (rank):
+    rank_text = "rank#"+str(rank)
+    return rank_text
 
 def search(skill_name):
     list_guilds_stred = []
@@ -184,6 +201,60 @@ def searchTotal():
     list_guilds_total_stred.clear()
     temp_guilds = ResetDict(guilds_counter_int)
     return mini_list
+def LeaderBoard():
+    all_xp = ResetDict(guilds_counter_int)
+    skill_0 = ResetDict(guilds_counter_int)
+    skill_1 = ResetDict(guilds_counter_int)
+    skill_2 = ResetDict(guilds_counter_int)
+    skill_3 = ResetDict(guilds_counter_int)
+    skill_4 = ResetDict(guilds_counter_int)
+    skill_5 = ResetDict(guilds_counter_int)
+    skill_6 = ResetDict(guilds_counter_int)
+    skills_dict_list = [skill_0,skill_1,skill_2,skill_3,skill_4,skill_5,skill_6,all_xp]
+
+    list_empty = []
+    list_empty.clear()
+    list_0 = list_empty
+    list_1 = list_empty
+    list_2 = list_empty
+    list_3 = list_empty
+    list_4 = list_empty
+    list_5 = list_empty
+    list_6 = list_empty
+    list_all = list_empty
+    list_lists = [list_0, list_1, list_2, list_3, list_4, list_5, list_6, list_all ]
+    
+    for m in range(0,7):
+        for k in range(0,49):  
+            url='https://www.curseofaros.com/highscores'
+            headers = {'User-Agent': 'Mozilla/5.0'}        
+            request = Request(url+skill[m]+'.json?p='+str(k), headers=headers)
+            html = urlopen(request).read()       
+            data = html.decode("utf-8")        
+            fdata = json.loads(data)
+            for i in range(0,20): 
+                #check names get rank
+                player_name = fdata[i]["name"]
+                xp = fdata[i]["xp"]
+                tag = player_name.split()[0]
+                tag = tag.upper()
+                n = player_name.lower()
+                
+                if tag in skills_dict_list[m] :
+                    skills_dict_list[m][tag] += xp
+                    all_xp[tag] += xp
+                elif "immortal" in n :
+                    skills_dict_list[m]["IMMORTAL"] += xp
+                    all_xp["IMMORTAL"] += xp
+                else :                
+                    continue
+    for j in range(0,8):
+        tempo = SortDict(skills_dict_list[j])
+        #skills_dict_list[m] = tempo
+        list_lists[j] = DictToList_alt(tempo)
+        tempo.clear()
+            
+    return list_lists
 
 ############################################################################################################
   
@@ -203,6 +274,8 @@ async def on_message(message):
     crafting = get(message.guild.emojis, name="crafting")
     cooking = get(message.guild.emojis, name="cooking")
     combat = get(message.guild.emojis, name="combat")
+    fourth = get(message.guild.emojis, name="fourth_place")
+    fifth = get(message.guild.emojis, name="fifth_place") 
       
     username = str(message.author).split('#')[0]
     user_message = str(message.content)
@@ -237,38 +310,17 @@ async def on_message(message):
             await message.channel.send("Fetching Combat Data")
             test_list_1 = search("")
             embedVar1 = d.Embed(title="Top Guilds: Combat", color=0x669999)
-            embedVar1.add_field(name="rank#1", value= test_list_1[0] , inline=False)
-            embedVar1.add_field(name="rank#2", value= test_list_1[1] , inline=False)
-            embedVar1.add_field(name="rank#3", value= test_list_1[2] , inline=False)
-            embedVar1.add_field(name="rank#4", value= test_list_1[3] , inline=False)
-            embedVar1.add_field(name="rank#5", value= test_list_1[4] , inline=False)
+            for i in range(5):
+                embedVar1.add_field(name=rankk(i+1), value= test_list_1[i] , inline=False)
             await message.channel.send(embed=embedVar1)
             test_list_1.clear()
-        
-        elif user_message.lower() == ('!gtest') :
-            embedVar1 = d.Embed(title="Top Guilds", color=0x669999)
-            #######################################
-            embedVar1.add_field(name= f' {mining}  Mining', value=" :first_place: Test \n :second_place: Test" , inline=True)
-            embedVar1.add_field(name= f' {wc}  Woodcutting', value=" :first_place: Test \n :second_place: Test" , inline=True)
-            embedVar1.add_field(name= f' {fishing}  Fishing', value=" :first_place: Test \n :second_place: Test" , inline=True)
-            #######################################
-            embedVar1.add_field(name= f' {smithing}  Smithing', value=" :first_place: Test \n :second_place: Test" , inline=True)
-            embedVar1.add_field(name= f' {crafting}  Crafting', value=" :first_place: Test \n :second_place: Test" , inline=True)
-            embedVar1.add_field(name= f' {cooking}  Cooking', value=" :first_place: Test \n :second_place: Test" , inline=True)
-            #######################################
-            embedVar1.add_field(name= f' {combat}  Combat', value=" :first_place: Test \n :second_place: Test" , inline=True)
-            embedVar1.add_field(name="Total XP", value=" :first_place: Test \n :second_place: Test" , inline=True)
-            await message.channel.send(embed=embedVar1)
                                
         elif user_message.lower() == ('!gmining') :
             await message.channel.send("Fetching Mining Data ... ")
             test_list_2 = search("-mining")
             embedVar2 = d.Embed(title="Top Guilds: Mining", color=0x333300)
-            embedVar2.add_field(name="rank#1", value= test_list_2[0] , inline=False)
-            embedVar2.add_field(name="rank#2", value= test_list_2[1] , inline=False)
-            embedVar2.add_field(name="rank#3", value= test_list_2[2] , inline=False)
-            embedVar2.add_field(name="rank#4", value= test_list_2[3] , inline=False)
-            embedVar2.add_field(name="rank#5", value= test_list_2[4] , inline=False)
+            for i in range(5):
+                embedVar2.add_field(name=rankk(i+1), value= test_list_2[i] , inline=False)
             await message.channel.send(embed=embedVar2)
             test_list_2.clear()
 
@@ -276,11 +328,8 @@ async def on_message(message):
             await message.channel.send("Fetching Smithing Data ... ")
             test_list_3 = search("-smithing")
             embedVar3 = d.Embed(title="Top Guilds: Smithing", color=0xff0000)
-            embedVar3.add_field(name="rank#1", value= test_list_3[0] , inline=False)
-            embedVar3.add_field(name="rank#2", value= test_list_3[1] , inline=False)
-            embedVar3.add_field(name="rank#3", value= test_list_3[2] , inline=False)
-            embedVar3.add_field(name="rank#4", value= test_list_3[3] , inline=False)
-            embedVar3.add_field(name="rank#5", value= test_list_3[4] , inline=False)
+            for i in range(5):
+                embedVar3.add_field(name=rankk(i+1), value= test_list_3[i] , inline=False)
             await message.channel.send(embed=embedVar3)
             test_list_3.clear()
 
@@ -288,11 +337,8 @@ async def on_message(message):
             await message.channel.send("Fetching Woodcutting Data ... ")
             test_list_4 = search("-woodcutting")
             embedVar4 = d.Embed(title="Top Guilds: Woodcutting", color=0x00cc00)
-            embedVar4.add_field(name="rank#1", value= test_list_4[0] , inline=False)
-            embedVar4.add_field(name="rank#2", value= test_list_4[1] , inline=False)
-            embedVar4.add_field(name="rank#3", value= test_list_4[2] , inline=False)
-            embedVar4.add_field(name="rank#4", value= test_list_4[3] , inline=False)
-            embedVar4.add_field(name="rank#5", value= test_list_4[4] , inline=False)
+            for i in range(5):
+                embedVar4.add_field(name=rankk(i+1), value= test_list_4[i] , inline=False)
             await message.channel.send(embed=embedVar4)
             test_list_4.clear()
 
@@ -300,11 +346,8 @@ async def on_message(message):
             await message.channel.send("Fetching Crafting Data ... ")
             test_list_5 = search("-crafting")
             embedVar5 = d.Embed(title="Top Guilds: Crafting", color=0x996633)
-            embedVar5.add_field(name="rank#1", value= test_list_5[0] , inline=False)
-            embedVar5.add_field(name="rank#2", value= test_list_5[1] , inline=False)
-            embedVar5.add_field(name="rank#3", value= test_list_5[2] , inline=False)
-            embedVar5.add_field(name="rank#4", value= test_list_5[3] , inline=False)
-            embedVar5.add_field(name="rank#5", value= test_list_5[4] , inline=False)
+            for i in range(5):
+                embedVar5.add_field(name=rankk(i+1), value= test_list_5[i] , inline=False)
             await message.channel.send(embed=embedVar5)
             test_list_5.clear()
 
@@ -312,11 +355,8 @@ async def on_message(message):
             await message.channel.send("Fetching Fishimg Data ... ")
             test_list_6 = search("-fishing")
             embedVar6 = d.Embed(title="Top Guilds: Fishing", color=0x0066ff)
-            embedVar6.add_field(name="rank#1", value= test_list_6[0] , inline=False)
-            embedVar6.add_field(name="rank#2", value= test_list_6[1] , inline=False)
-            embedVar6.add_field(name="rank#3", value= test_list_6[2] , inline=False)
-            embedVar6.add_field(name="rank#4", value= test_list_6[3] , inline=False)
-            embedVar6.add_field(name="rank#5", value= test_list_6[4] , inline=False)
+            for i in range(5):
+                embedVar6.add_field(name=rankk(i+1), value= test_list_6[i] , inline=False)
             await message.channel.send(embed=embedVar6)
             test_list_6.clear()
 
@@ -324,11 +364,8 @@ async def on_message(message):
             await message.channel.send("Fetching Cooking Data ... ")
             test_list_7 = search("-cooking")
             embedVar7 = d.Embed(title="Top Guilds: Cooking", color=0x800000)
-            embedVar7.add_field(name="rank#1", value= test_list_7[0] , inline=False)
-            embedVar7.add_field(name="rank#2", value= test_list_7[1] , inline=False)
-            embedVar7.add_field(name="rank#3", value= test_list_7[2] , inline=False)
-            embedVar7.add_field(name="rank#4", value= test_list_7[3] , inline=False)
-            embedVar7.add_field(name="rank#5", value= test_list_7[4] , inline=False)
+            for i in range(5):
+                embedVar7.add_field(name=rankk(i+1), value= test_list_7[i] , inline=False)
             await message.channel.send(embed=embedVar7)
             test_list_7.clear()
 
@@ -337,14 +374,21 @@ async def on_message(message):
             test_list_0 = searchTotal()
         
             embedVar0 = d.Embed(title="Top Guilds: Total XP", color=0x6600ff)
-            embedVar0.add_field(name="rank#1", value= test_list_0[0] , inline=False)
-            embedVar0.add_field(name="rank#2", value= test_list_0[1] , inline=False)
-            embedVar0.add_field(name="rank#3", value= test_list_0[2] , inline=False)
-            embedVar0.add_field(name="rank#4", value= test_list_0[3] , inline=False)
-            embedVar0.add_field(name="rank#5", value= test_list_0[4] , inline=False)
+            for i in range(5):
+                embedVar0.add_field(name=rankk(i+1), value= test_list_0[i] , inline=False)
             await message.channel.send(embed=embedVar0)
             test_list_0.clear()
-
+            
+        elif user_message.lower() == ('!gall') :
+            await message.channel.send("Fetching Data ... ")
+            embedVar1 = d.Embed(title="Top Guilds", color=0x669999)
+            listed = LeaderBoard()
+            
+            for i in [1,3,5,2,4,6,0,7]:
+                msg = " :first_place: "+listed[i][0]+" \n :second_place: "+listed[i][1]+" \n :third_place: "+listed[i][2]+f" \n {fourth} "+listed[i][3]+f" \n {fifth} "+listed[i][4]+' \n' #mining
+                embedVar1.add_field(name= field_header[i], value= msg , inline=True)
+            await message.channel.send(embed=embedVar1)
+        
         elif user_message.lower() == '!date':
             today = date.today()
             d1 = today.strftime("%d/%m/%Y")
@@ -361,6 +405,7 @@ async def on_message(message):
             embedVar8.add_field(name="!gfishing", value= "Show Top 5 Guilds in Fishing" , inline=False)
             embedVar8.add_field(name="!gcooking", value= "Show Top 5 Guilds in Cooking" , inline=False)
             embedVar8.add_field(name="!gtotal", value= "Show Top 5 Guilds in Total XP" , inline=False)
+            embedVar8.add_field(name="!gall", value= "Show Top 5 Guilds in Every Category" , inline=False)
             embedVar8.add_field(name="!bestguild", value= "Show The Current Best Guild" , inline=False)
             embedVar8.add_field(name="!random", value= "Random Number (0;1,000,000)" , inline=False)
             embedVar8.add_field(name="!date", value= "Show Today Date" , inline=False)
