@@ -301,7 +301,7 @@ async def on_message(message):
         elif user_message.contain(" "):
             if ((user_message.lower() == "!gtest") and (comd_int>=2) and (comd_int<=5)):
                 await message.channel.send(f'Wanna Search For {cmd_int} Rank ?!')
-            else
+            else:
                 continue
       
         elif user_message.lower() == '!wussup':
