@@ -290,7 +290,7 @@ async def on_message(message):
         return
 
     if message.channel.name == 'testing' :
-        cmd_int = int(user_message.split(" ")[1])
+        
         if user_message.lower() == '!hello':
             await message.channel.send(f'Hello {username}!')
 
@@ -299,6 +299,7 @@ async def on_message(message):
             
         
         elif user_message.contain(" "):
+            cmd_int = int(user_message.split(" ")[1])  
             if ((user_message.lower() == "!gtest") and (comd_int>=2) and (comd_int<=5)):
                 await message.channel.send(f'Wanna Search For {cmd_int} Rank ?!')
             else:
