@@ -421,7 +421,6 @@ async def on_message(message):
             embedVar8.add_field(name="!gcooking", value= "Show Top 5 Guilds in Cooking" , inline=False)
             embedVar8.add_field(name="!gtotal", value= "Show Top 5 Guilds in Total XP" , inline=False)
             embedVar8.add_field(name="!gall", value= "Show Top 5 Guilds in Every Category" , inline=False)
-            embedVar8.add_field(name="!bestguild", value= "Show The Current Best Guild" , inline=False)
             embedVar8.add_field(name="!gtest", value= "Test The Current Command In Developement" , inline=False)
             embedVar8.add_field(name="!random", value= "Random Number (0;1,000,000)" , inline=False)
             embedVar8.add_field(name="!date", value= "Show Today Date" , inline=False)
