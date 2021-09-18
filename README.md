@@ -9,3 +9,4 @@ to use the bot in your server :
 6) after the deploying finish go settings, reveal config vars; in key ,type TOKEN , in value enter the bot token and hit add
 7) if u done it right, "Worker python main.py" should appear in the Ressources tab ,click on the edit button turn the bot on and hit confirm
 8) wait few minutes for the bot to start
+9) (outdated)
